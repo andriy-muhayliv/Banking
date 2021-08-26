@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Text, View, StyleSheet, Image } from 'react-native'
 import CurrencyItem from './Currency Item/CurrencyItem'
+import Loader from './Loader/Loader';
 import ViewDetailModal from './ModalsComponents/VievDetailModal';
 import TabItem from './Tabs item/tabItem';
 
@@ -32,7 +33,7 @@ const Home = (props) => {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
             <View style={styles.current__balance}>
                 <Text style={{ color: '#262F56', textAlign: 'center', paddingTop: '7px', fontSize: '18px' }}>Accounts Name (EUR)</Text>
-                <Text style={{ color: '#262F56', textAlign: 'center', fontSize: '35px' }}>€{data ? data.body.balance : null}</Text>
+                <Text style={{ color: '#262F56', textAlign: 'center', fontSize: '35px' }}>€{data ? data.body.balance : <Loader />}</Text>
                 <Text style={{ color: '#262F56', textAlign: 'center', fontSize: '16px' }}>Current balance</Text>
             </View>
             {/* You can add any page on this button use "modal={<AnyPage />}" */}
@@ -50,7 +51,7 @@ const Home = (props) => {
                 <View style={{ alignItems: 'center' }}>
                     {data ? data.body.accounts.map((el, id) => {
                         return (<CurrencyItem key={id} title={el.title} currency={el.currency} balance={el.balance} />)
-                    }) : null}
+                    }) : <Loader />}
                 </View>
             </View>
 
