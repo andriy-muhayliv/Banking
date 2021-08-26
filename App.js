@@ -7,15 +7,13 @@ const url = 'https://vhmfz744o2.execute-api.eu-west-2.amazonaws.com/dev/data';
 
 
 fetch(url, {
-  method: 'GET',
   headers: {
-    type: 'API Key',
-    key: 'x-api-key',
-    value: 'ieLWvByj0Z7obl0aLmVzmiJgbjVXZf987aoRts59',
+    'x-api-key': 'ieLWvByj0Z7obl0aLmVzmiJgbjVXZf987aoRts59',
+
   }
 })
   .then(responce => responce.json())
-  .then(json => console.log(json))
+  .then(json => console.log(json.body))
   .catch((err) => {
     console.error(err);
   });
